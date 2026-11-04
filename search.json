@@ -32,7 +32,7 @@
   {
     "objectID": "01_研究概要.html",
     "href": "01_研究概要.html",
-    "title": "研究概要",
+    "title": "1  研究概要",
     "section": "",
     "text": "1.1 研究件名\n物価上昇と日本の家計の消費支出に関する研究",
     "crumbs": [
@@ -40,11 +40,11 @@
     ]
   },
   {
-    "objectID": "01_研究概要.html#研究の背景",
-    "href": "01_研究概要.html#研究の背景",
-    "title": "研究概要",
-    "section": "1.2 研究の背景",
-    "text": "1.2 研究の背景\n近年、都市部における交通手段としてシェアサイクル（自転車シェアリング）の利用が急速に拡大している。シェアサイクルは環境負荷の低い移動手段として注目されるだけでなく、ラストワンマイルの交通課題を解決する手段としても期待されている (kozima2028?)。\n効率的な運営のためには、利用数の予測が不可欠である。気象条件や曜日・時間帯といった要因が利用パターンに大きく影響することが先行研究で示されている (Eren2020?)。しかし、東京都内のシェアサイクルに特化した予測モデルの構築事例は限られており、地域特性を考慮した分析が求められている。",
+    "objectID": "01_研究概要.html#リサーチクエスチョン",
+    "href": "01_研究概要.html#リサーチクエスチョン",
+    "title": "1  研究概要",
+    "section": "1.2 リサーチクエスチョン",
+    "text": "1.2 リサーチクエスチョン\n物価上昇は日本の家計の消費支出にどのような影響を与えたのか？",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>研究概要</span>"
     ]
@@ -52,9 +52,39 @@
   {
     "objectID": "01_研究概要.html#研究の目的",
     "href": "01_研究概要.html#研究の目的",
-    "title": "研究概要",
+    "title": "1  研究概要",
     "section": "1.3 研究の目的",
-    "text": "1.3 研究の目的\n本研究の目的は以下の通りである。\n\n東京都内のシェアサイクル利用データと気象データを用いて、時間帯別の利用数を予測するモデルを構築する\n線形回帰と回帰木（rpart）の予測精度を比較し、各手法の特性を明らかにする\n利用数に影響を与える要因を変数重要度分析により特定する",
+    "text": "1.3 研究の目的\n近年、日本では物価高が続いていることもあり、日本で暮らす人々に影響を与えたのか知ることでこれからの社会を考える上で大事になると考えた。",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>研究概要</span>"
+    ]
+  },
+  {
+    "objectID": "01_研究概要.html#仮説",
+    "href": "01_研究概要.html#仮説",
+    "title": "1  研究概要",
+    "section": "1.4 仮説",
+    "text": "1.4 仮説\n家計支出は減る(影響を与えた)のではないか また、所得が低いほどその影響を受けやすいのではないかと考える",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>研究概要</span>"
+    ]
+  },
+  {
+    "objectID": "01_研究概要.html#データ",
+    "href": "01_研究概要.html#データ",
+    "title": "1  研究概要",
+    "section": "1.5 データ",
+    "text": "1.5 データ\n家計調査、消費者物価指数、先行研究(小嶋大造・大澤秀暁・村上太郎・福島宏祐・小池孝英 (2018年),朏島大樹 (2021年),Jinnai Ryo (2021年))\n\n小嶋大造・大澤秀暁・村上太郎・福島宏祐・小池孝英. 2018年. 「食料価格上昇局面における家計消費とエンゲル係数 –所得階層別の変化要因の分析–」. 経済論叢 192 (4): 71–89. https://doi.org/10.14989/244615.\n\n朏島大樹. 2021年. 「食料価格の上昇とエンゲル係数 : QUAIDSモデルによる接近」. 経済研究 72 (2): 113–27. https://doi.org/10.15057/71666.\n\nJinnai Ryo, Okuda Tatsushi, Mikami Tomoaki. 2021年. 「Household Inflation Expectation and Consumption: Evidence from Japan」. 経済研究 72 (3): 268–95. https://doi.org/10.15057/71970.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>研究概要</span>"
+    ]
+  },
+  {
+    "objectID": "01_研究概要.html#分析方法",
+    "href": "01_研究概要.html#分析方法",
+    "title": "1  研究概要",
+    "section": "1.6 分析方法",
+    "text": "1.6 分析方法\n時系列比較",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>研究概要</span>"
     ]
