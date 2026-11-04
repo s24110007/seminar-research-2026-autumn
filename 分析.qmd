@@ -1,0 +1,108 @@
+---
+title: "分析"
+format: html
+---
+
+```{r}
+library(tidyverse)
+library(lubridate)
+library(readr)
+
+# CSVを読み込む
+raw <- read.csv(
+  file.choose(),
+  header = FALSE,
+  fileEncoding = "CP932",
+  check.names = FALSE,
+  stringsAsFactors = FALSE,
+  na.strings = c("", "-", "…", "－")
+)
+
+# 分析対象とする支出項目
+items <- c(
+  "消費支出",
+  "食料",
+  "外食",
+  "光熱・水道",
+  "被服及び履物",
+  "教養娯楽"
+)
+
+# 支出項目を抽出して縦長に変換
+df <- raw %>%
+  filter(V6 %in% items) %>%
+  select(V6, V7:ncol(raw)) %>%
+  rename(項目 = V6) %>%
+  pivot_longer(
+    cols = -項目,
+    names_to = "列番号",
+    values_to = "支出"
+  ) %>%
+  mutate(
+    月番号 = as.integer(sub("V", "", 列番号)) - 6L,
+    年月 = as.Date(
+      seq(
+        as.Date("2000-01-01"),
+        by = "month",
+        length.out = ncol(raw) - 6L
+      )[月番号]
+    ),
+    支出 = parse_number(as.character(支出))
+  ) %>%
+  select(年月, 項目, 支出) %>%
+  arrange(年月, 項目)
+
+# 確認
+head(df)
+glimpse(df)
+```
+
+```{r}
+ggplot(df, aes(x = 年月, y = 支出, color = 項目)) +
+  geom_line() +
+  labs(
+    title = "家計の支出項目別推移",
+    x = "年月",
+    y = "支出額（円）",
+    color = "支出項目"
+  ) +
+  theme_minimal()
+```
+```{r}
+df %>%
+  filter(項目 != "消費支出") %>%
+  ggplot(aes(x = 年月, y = 支出)) +
+  geom_line(color = "skyblue") +
+  facet_wrap(~ 項目, scales = "free_y") +
+  labs(
+    title = "支出項目別の推移",
+    x = "年月",
+    y = "支出額（円）"
+  ) +
+  theme_minimal()
+```
+
+```{r}
+df <- df %>%
+  group_by(項目) %>%
+  arrange(年月, .by_group = TRUE) %>%
+  mutate(
+    前年同月支出 = lag(支出, 12),
+    前年比 = (支出 / 前年同月支出 - 1) * 100
+  ) %>%
+  ungroup()
+
+# 食料支出の前年比
+df %>%
+  filter(項目 == "食料") %>%
+  ggplot(aes(x = 年月, y = 前年比)) +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  geom_line() +
+  labs(
+    title = "食料支出の前年同月比",
+    x = "年月",
+    y = "前年比（%）"
+  ) +
+  theme_minimal()
+```
+
